@@ -2,6 +2,7 @@ package com.example.tests;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.*;
 
 import java.util.concurrent.TimeUnit;
@@ -64,38 +65,43 @@ public class TestBase {
         driver.findElement(By.linkText("home")).click();
     }
 
-
-
-    private boolean isElementPresent(By by) {
-        try {
-            driver.findElement(by);
-            return true;
-        } catch (NoSuchElementException e) {
-            return false;
-        }
+    protected void gotoHomePage() {
+        driver.findElement(By.linkText("home page")).click();
     }
 
-    private boolean isAlertPresent() {
-        try {
-            driver.switchTo().alert();
-            return true;
-        } catch (NoAlertPresentException e) {
-            return false;
-        }
+    protected void submitContactForm() {
+        driver.findElement(By.name("submit")).click();
     }
 
-    private String closeAlertAndGetItsText() {
-        try {
-            Alert alert = driver.switchTo().alert();
-            String alertText = alert.getText();
-            if (acceptNextAlert) {
-                alert.accept();
-            } else {
-                alert.dismiss();
-            }
-            return alertText;
-        } finally {
-            acceptNextAlert = true;
-        }
+    protected void fillContactForm(ContactData contactData) {
+        driver.findElement(By.name("firstname")).clear();
+        driver.findElement(By.name("firstname")).sendKeys(contactData.getName());
+        driver.findElement(By.name("lastname")).clear();
+        driver.findElement(By.name("lastname")).sendKeys(contactData.getSurname());
+        driver.findElement(By.name("address")).clear();
+        driver.findElement(By.name("address")).sendKeys(contactData.getAddress());
+        driver.findElement(By.name("home")).clear();
+        driver.findElement(By.name("home")).sendKeys(contactData.getHomeNumber());
+        driver.findElement(By.name("mobile")).clear();
+        driver.findElement(By.name("mobile")).sendKeys(contactData.getMobileNumber());
+        driver.findElement(By.name("work")).clear();
+        driver.findElement(By.name("work")).sendKeys(contactData.getWorkNumber());
+        driver.findElement(By.name("email")).clear();
+        driver.findElement(By.name("email")).sendKeys(contactData.getEmail1());
+        driver.findElement(By.name("email2")).clear();
+        driver.findElement(By.name("email2")).sendKeys(contactData.getEmail2());
+        new Select(driver.findElement(By.name("bday"))).selectByVisibleText(contactData.getBday());
+        new Select(driver.findElement(By.name("bmonth"))).selectByVisibleText(contactData.getBmonth());
+        driver.findElement(By.name("byear")).clear();
+        driver.findElement(By.name("byear")).sendKeys(contactData.getByear());
+        new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroupName());
+        driver.findElement(By.name("address2")).clear();
+        driver.findElement(By.name("address2")).sendKeys(contactData.getSecondaryAddress());
+        driver.findElement(By.name("phone2")).clear();
+        driver.findElement(By.name("phone2")).sendKeys(contactData.getSecondaryPhone());
+    }
+
+    protected void gotoInitContactPage() {
+        driver.findElement(By.linkText("add new")).click();
     }
 }

@@ -4,7 +4,7 @@ package com.example.tests;
 import org.testng.annotations.Test;
 
 
-public class TestWithData extends TestBase {
+public class TestGroup extends TestBase {
 
     @Test
     public void testNonEmptyGroupCreation() throws Exception {
@@ -16,6 +16,16 @@ public class TestWithData extends TestBase {
         groupData.header = "Header1";
         groupData.footer = "Footer1";
         fillGroupForm(groupData);
+        submitGroupCreation();
+        returnToGroupPage();
+    }
+
+    @Test
+    public void testEmptyGroupCreation() throws Exception {
+        openMainPage();
+        gotoGroupPage();
+        initGroupPage();
+        fillGroupForm(new GroupData("", "", ""));
         submitGroupCreation();
         returnToGroupPage();
     }

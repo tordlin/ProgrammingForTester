@@ -37,4 +37,17 @@ public class ContactHelper extends HelperBase {
     public void gotoInitContactPage() {
         click(By.linkText("add new"));
     }
+
+    public void initModifySomeContact(int index) {
+        click(By.xpath(".//tbody/tr[" + (1 + index) + "]/td[7]//img"));
+    }
+
+    public void deleteContact() {
+        click(By.xpath(".//form[@action='delete.php']/input[@name='update']"));
+    }
+
+
+    public void updateContact() {
+        click(By.xpath(".//form[@action='edit.php']/input[@name='update']"));
+    }
 }

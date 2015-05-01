@@ -30,7 +30,19 @@ public class GroupHelper extends HelperBase {
         click(By.name("new"));
     }
 
-    public void gotoGroupPage() {
-        click(By.linkText("groups"));
+    public void deleteSomeGroup(int index) {
+        selectGroupByIndex(index);
+        click(By.name("delete"));
     }
+
+    public void initGroupModification(int index) {
+        selectGroupByIndex(index);
+        click(By.name("edit"));
+    }
+
+    public void submitGroupModification() {
+        click(By.name("update"));
+    }
+
 }
+

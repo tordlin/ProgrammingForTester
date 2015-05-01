@@ -9,7 +9,7 @@ public class TestGroup extends TestBase {
     @Test
     public void testNonEmptyGroupCreation() throws Exception {
         app.getNavigationHelper().openMainPage();
-        app.getGroupHelper().gotoGroupPage();
+        app.getNavigationHelper().gotoGroupPage();
         app.getGroupHelper().initGroupPage();
         GroupData groupData = new GroupData();
         groupData.name = "GroupName1";
@@ -23,7 +23,7 @@ public class TestGroup extends TestBase {
     @Test
     public void testEmptyGroupCreation() throws Exception {
         app.getNavigationHelper().openMainPage();
-        app.getGroupHelper().gotoGroupPage();
+        app.getNavigationHelper().gotoGroupPage();
         app.getGroupHelper().initGroupPage();
         app.getGroupHelper().fillGroupForm(new GroupData("", "", ""));
         app.getGroupHelper().submitGroupCreation();

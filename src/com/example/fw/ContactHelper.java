@@ -1,7 +1,12 @@
 package com.example.fw;
 
 import com.example.tests.ContactData;
+import com.example.tests.GroupData;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Tordlin on 01/05/2015.
@@ -45,9 +50,20 @@ public class ContactHelper extends HelperBase {
         click(By.xpath(".//form[@action='delete.php']/input[@name='update']"));
     }
 
-
+    public List<ContactData> getContacts() {
+        List<ContactData> contacts = new ArrayList<ContactData>();
+        List<WebElement> lastNamesTable = driver.findElements(By.xpath(".//*[@id='maintable']/tbody/tr/td[3]"));
+        for(WebElement lastName : lastNamesTable){
+            ContactData contact = new ContactData();
+            contact.name = lastName.getText();
+           //contact.name = s.substring("Select (".length(), s.length() - " )".length());
+            contacts.add(contact);
+        }
+        return contacts;
+    }
     public void updateContact() {
         click(By.xpath(".//form[@action='edit.php']/input[@name='update']"));
     }
+
 
 }

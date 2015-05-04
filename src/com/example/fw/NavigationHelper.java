@@ -24,4 +24,7 @@ public class NavigationHelper extends HelperBase{
         click(By.linkText("groups"));
     }
 
+    protected void selectGroupByIndex(int index) {
+        click(By.xpath(".//input[@name='selected[]'][" + (index + 1) + "]"));
+    }
 }

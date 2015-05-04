@@ -2,7 +2,6 @@ package com.example.fw;
 
 import com.example.tests.ContactData;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.Select;
 
 /**
  * Created by Tordlin on 01/05/2015.
@@ -50,4 +49,5 @@ public class ContactHelper extends HelperBase {
     public void updateContact() {
         click(By.xpath(".//form[@action='edit.php']/input[@name='update']"));
     }
+
 }

@@ -3,6 +3,10 @@ package com.example.tests;
 
 import org.testng.annotations.Test;
 
+import java.util.Collections;
+import java.util.List;
+import static org.testng.Assert.assertEquals;
+
 
 public class TestGroup extends TestBase {
 
@@ -10,6 +14,11 @@ public class TestGroup extends TestBase {
     public void testNonEmptyGroupCreation() throws Exception {
         app.getNavigationHelper().openMainPage();
         app.getNavigationHelper().gotoGroupPage();
+
+        //save old state
+        List<GroupData> oldlist = app.getGroupHelper().getGroups();
+
+        //actions
         app.getGroupHelper().initGroupPage();
         GroupData groupData = new GroupData();
         groupData.name = "GroupName1";
@@ -18,16 +27,38 @@ public class TestGroup extends TestBase {
         app.getGroupHelper().fillGroupForm(groupData);
         app.getGroupHelper().submitGroupCreation();
         app.getGroupHelper().returnToGroupPage();
+
+        //save new state
+        List<GroupData> newlist = app.getGroupHelper().getGroups();
+
+        //compare states
+        oldlist.add(groupData);
+        Collections.sort(oldlist);
+        assertEquals(newlist, oldlist);
     }
 
     @Test
     public void testEmptyGroupCreation() throws Exception {
         app.getNavigationHelper().openMainPage();
         app.getNavigationHelper().gotoGroupPage();
+
+        //save old state
+        List<GroupData> oldlist = app.getGroupHelper().getGroups();
+
+        //actions
         app.getGroupHelper().initGroupPage();
-        app.getGroupHelper().fillGroupForm(new GroupData("", "", ""));
+        GroupData groupData = new GroupData("", "", "");
+        app.getGroupHelper().fillGroupForm(groupData);
         app.getGroupHelper().submitGroupCreation();
         app.getGroupHelper().returnToGroupPage();
+
+        //save new state
+        List<GroupData> newlist = app.getGroupHelper().getGroups();
+
+        //compare states
+        oldlist.add(groupData);
+        Collections.sort(oldlist);
+        assertEquals(newlist, oldlist);
     }
 
 

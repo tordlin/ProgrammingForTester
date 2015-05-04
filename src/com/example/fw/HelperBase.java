@@ -34,7 +34,4 @@ public abstract class HelperBase {
         }
     }
 
-    protected void selectGroupByIndex(int index) {
-        click(By.xpath(".//input[@name='selected[]'][" + index + "]"));
-    }
 }

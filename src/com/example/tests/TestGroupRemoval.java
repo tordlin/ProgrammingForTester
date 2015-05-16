@@ -18,18 +18,18 @@ public class TestGroupRemoval extends TestBase{
         app.getNavigationHelper().gotoGroupPage();
 
         //save old state
-        List<GroupData> oldlist = app.getGroupHelper().getGroups();
+        List<GroupData> oldList = app.getGroupHelper().getGroups();
 
         //actions
         app.getGroupHelper().deleteSomeGroup(0);
         app.getGroupHelper().returnToGroupPage();
 
         //save new state
-        List<GroupData> newlist = app.getGroupHelper().getGroups();
+        List<GroupData> newList = app.getGroupHelper().getGroups();
 
         //compare states
-        oldlist.remove(0);
-        Collections.sort(oldlist);
-        assertEquals(newlist, oldlist);
+        oldList.remove(0);
+        Collections.sort(oldList);
+        assertEquals(newList, oldList);
     }
 }

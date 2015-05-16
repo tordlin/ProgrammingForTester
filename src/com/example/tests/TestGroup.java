@@ -16,7 +16,7 @@ public class TestGroup extends TestBase {
         app.getNavigationHelper().gotoGroupPage();
 
         //save old state
-        List<GroupData> oldlist = app.getGroupHelper().getGroups();
+        List<GroupData> oldList = app.getGroupHelper().getGroups();
 
         //actions
         app.getGroupHelper().initGroupPage();
@@ -29,12 +29,12 @@ public class TestGroup extends TestBase {
         app.getGroupHelper().returnToGroupPage();
 
         //save new state
-        List<GroupData> newlist = app.getGroupHelper().getGroups();
+        List<GroupData> newList = app.getGroupHelper().getGroups();
 
         //compare states
-        oldlist.add(groupData);
-        Collections.sort(oldlist);
-        assertEquals(newlist, oldlist);
+        oldList.add(groupData);
+        Collections.sort(oldList);
+        assertEquals(newList, oldList);
     }
 
     @Test

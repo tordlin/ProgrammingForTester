@@ -17,7 +17,7 @@ public class TestContactModification extends TestBase{
         app.getNavigationHelper().openMainPage();
 
         //save old state
-        List<ContactData> oldlist = app.getContactHelper().getContacts();
+        List<ContactData> oldList = app.getContactHelper().getContacts();
 
         //actions
         app.getContactHelper().initModifySomeContact(0);
@@ -28,12 +28,13 @@ public class TestContactModification extends TestBase{
         app.getNavigationHelper().gotoHomePage();
 
         //save new state
-        List<ContactData> newlist = app.getContactHelper().getContacts();
+        List<ContactData> newList = app.getContactHelper().getContacts();
 
         //compare states
-        oldlist.remove(0);
-        oldlist.add(contactData);
-        Collections.sort(oldlist);
-        assertEquals(newlist, oldlist);
+        oldList.remove(0);
+        oldList.add(contactData);
+        Collections.sort(oldList);
+        Collections.sort(newList);
+        assertEquals(newList, oldList);
     }
 }

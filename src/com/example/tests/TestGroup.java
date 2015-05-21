@@ -1,17 +1,18 @@
 package com.example.tests;
 
 
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
+
 import static org.testng.Assert.assertEquals;
 
 
 public class TestGroup extends TestBase {
 
-    @Test
-    public void testNonEmptyGroupCreation() throws Exception {
+    @Test(dataProvider = "randomGroupGeneration")
+    public void testGroupCreation(GroupData groupData) throws Exception {
         app.getNavigationHelper().openMainPage();
         app.getNavigationHelper().gotoGroupPage();
 
@@ -20,10 +21,6 @@ public class TestGroup extends TestBase {
 
         //actions
         app.getGroupHelper().initGroupPage();
-        GroupData groupData = new GroupData();
-        groupData.name = "GroupName1";
-        groupData.header = "Header1";
-        groupData.footer = "Footer1";
         app.getGroupHelper().fillGroupForm(groupData);
         app.getGroupHelper().submitGroupCreation();
         app.getGroupHelper().returnToGroupPage();
@@ -36,30 +33,5 @@ public class TestGroup extends TestBase {
         Collections.sort(oldList);
         assertEquals(newList, oldList);
     }
-
-    @Test
-    public void testEmptyGroupCreation() throws Exception {
-        app.getNavigationHelper().openMainPage();
-        app.getNavigationHelper().gotoGroupPage();
-
-        //save old state
-        List<GroupData> oldlist = app.getGroupHelper().getGroups();
-
-        //actions
-        app.getGroupHelper().initGroupPage();
-        GroupData groupData = new GroupData("", "", "");
-        app.getGroupHelper().fillGroupForm(groupData);
-        app.getGroupHelper().submitGroupCreation();
-        app.getGroupHelper().returnToGroupPage();
-
-        //save new state
-        List<GroupData> newlist = app.getGroupHelper().getGroups();
-
-        //compare states
-        oldlist.add(groupData);
-        Collections.sort(oldlist);
-        assertEquals(newlist, oldlist);
-    }
-
 
 }

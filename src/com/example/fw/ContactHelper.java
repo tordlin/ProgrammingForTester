@@ -56,7 +56,6 @@ public class ContactHelper extends HelperBase {
         for(WebElement lastName : lastNamesTable){
             ContactData contact = new ContactData();
             contact.name = lastName.getText();
-           //contact.name = s.substring("Select (".length(), s.length() - " )".length());
             contacts.add(contact);
         }
         return contacts;

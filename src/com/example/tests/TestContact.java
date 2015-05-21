@@ -45,6 +45,7 @@ public class TestContact extends TestBase{
         //compare states
         oldList.add(contactData);
         Collections.sort(oldList);
+        Collections.sort(newList);
         assertEquals(newList, oldList);
     }
 

@@ -26,7 +26,7 @@ public class GroupHelper extends HelperBase {
     }
 
     public void rebuildGroupCache() {
-        List<GroupData> cachedGroups = new ArrayList<GroupData>();
+        cachedGroups = new ArrayList<GroupData>();
         List<WebElement> checkboxs = driver.findElements(By.name("selected[]"));
         for(WebElement checkbox : checkboxs){
             GroupData group = new GroupData();

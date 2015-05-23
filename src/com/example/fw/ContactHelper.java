@@ -26,7 +26,7 @@ public class ContactHelper extends HelperBase {
     }
 
     public void rebuildContactCache() {
-        List<ContactData> cachedContact = new ArrayList<ContactData>();
+        cachedContact = new ArrayList<ContactData>();
         List<WebElement> lastNamesTable = driver.findElements(By.xpath(".//*[@id='maintable']/tbody/tr/td[3]"));
         for(WebElement lastName : lastNamesTable){
             ContactData contact = new ContactData();

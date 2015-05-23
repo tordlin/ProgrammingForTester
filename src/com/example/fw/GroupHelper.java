@@ -12,8 +12,28 @@ import java.util.List;
  */
 public class GroupHelper extends HelperBase {
 
+    private List<GroupData> cachedGroups;
+
     public GroupHelper(ApplicationManager manager) {
         super(manager);
+    }
+
+    public List<GroupData> getGroups() {
+        if(cachedGroups == null){
+            rebuildGroupCache();
+        }
+        return cachedGroups;
+    }
+
+    public void rebuildGroupCache() {
+        List<GroupData> cachedGroups = new ArrayList<GroupData>();
+        List<WebElement> checkboxs = driver.findElements(By.name("selected[]"));
+        for(WebElement checkbox : checkboxs){
+            GroupData group = new GroupData();
+            String title = checkbox.getAttribute("title");
+            group.name = title.substring("Select (".length(), title.length() - ")".length());
+            cachedGroups.add(group);
+        }
     }
 
     public void returnToGroupPage() {
@@ -22,6 +42,7 @@ public class GroupHelper extends HelperBase {
 
     public void submitGroupCreation() {
         click(By.name("submit"));
+        cachedGroups = null;
     }
 
     public void fillGroupForm(GroupData groupData) {
@@ -37,6 +58,7 @@ public class GroupHelper extends HelperBase {
     public void deleteSomeGroup(int index) {
         selectGroupByIndex(index);
         click(By.name("delete"));
+        cachedGroups = null;
     }
 
     public void initGroupModification(int index) {
@@ -46,18 +68,7 @@ public class GroupHelper extends HelperBase {
 
     public void submitGroupModification() {
         click(By.name("update"));
-    }
-
-    public List<GroupData> getGroups() {
-        List<GroupData> groups = new ArrayList<GroupData>();
-        List<WebElement> checkboxs = driver.findElements(By.name("selected[]"));
-        for(WebElement checkbox : checkboxs){
-            GroupData group = new GroupData();
-            String title = checkbox.getAttribute("title");
-            group.name = title.substring("Select (".length(), title.length() - ")".length());
-            groups.add(group);
-        }
-        return groups;
+        cachedGroups = null;
     }
 
     protected void selectGroupByIndex(int index) {

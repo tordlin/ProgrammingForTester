@@ -1,7 +1,6 @@
 package com.example.fw;
 
 import com.example.tests.ContactData;
-import com.example.tests.GroupData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -13,8 +12,27 @@ import java.util.List;
  */
 public class ContactHelper extends HelperBase {
 
+    private List<ContactData> cachedContact;
+
     public ContactHelper(ApplicationManager manager) {
         super(manager);
+    }
+
+    public List<ContactData> getContacts() {
+        if(cachedContact == null){
+            rebuildContactCache();
+        }
+        return cachedContact;
+    }
+
+    public void rebuildContactCache() {
+        List<ContactData> cachedContact = new ArrayList<ContactData>();
+        List<WebElement> lastNamesTable = driver.findElements(By.xpath(".//*[@id='maintable']/tbody/tr/td[3]"));
+        for(WebElement lastName : lastNamesTable){
+            ContactData contact = new ContactData();
+            contact.name = lastName.getText();
+            cachedContact.add(contact);
+        }
     }
 
     public void fillContactForm(ContactData contactData) {
@@ -36,6 +54,7 @@ public class ContactHelper extends HelperBase {
 
     public void submitContactForm() {
         click(By.name("submit"));
+        cachedContact = null;
     }
 
     public void gotoInitContactPage() {
@@ -48,20 +67,12 @@ public class ContactHelper extends HelperBase {
 
     public void deleteContact() {
         click(By.xpath(".//form[@action='delete.php']/input[@name='update']"));
+        cachedContact = null;
     }
 
-    public List<ContactData> getContacts() {
-        List<ContactData> contacts = new ArrayList<ContactData>();
-        List<WebElement> lastNamesTable = driver.findElements(By.xpath(".//*[@id='maintable']/tbody/tr/td[3]"));
-        for(WebElement lastName : lastNamesTable){
-            ContactData contact = new ContactData();
-            contact.name = lastName.getText();
-            contacts.add(contact);
-        }
-        return contacts;
-    }
     public void updateContact() {
         click(By.xpath(".//form[@action='edit.php']/input[@name='update']"));
+        cachedContact = null;
     }
 
 

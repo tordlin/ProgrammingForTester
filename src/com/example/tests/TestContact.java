@@ -23,6 +23,7 @@ public class TestContact extends TestBase{
         app.getContactHelper().fillContactForm(contactData);
         app.getContactHelper().submitContactForm();
         app.getNavigationHelper().gotoHomePage();
+        app.getContactHelper().rebuildContactCache();
 
         //save new state
         List<ContactData> newList = app.getContactHelper().getContacts();

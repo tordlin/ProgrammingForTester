@@ -23,6 +23,7 @@ public class TestGroupRemoval extends TestBase{
         //actions
         app.getGroupHelper().deleteSomeGroup(0);
         app.getGroupHelper().returnToGroupPage();
+        app.getGroupHelper().rebuildGroupCache();
 
         //save new state
         List<GroupData> newList = app.getGroupHelper().getGroups();

@@ -27,6 +27,7 @@ public class TestGroupModification extends TestBase {
         app.getGroupHelper().fillGroupForm(group);
         app.getGroupHelper().submitGroupModification();
         app.getGroupHelper().returnToGroupPage();
+        app.getGroupHelper().rebuildGroupCache();
 
         //save new state
         List<GroupData> newList = app.getGroupHelper().getGroups();

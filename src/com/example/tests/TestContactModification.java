@@ -28,6 +28,7 @@ public class TestContactModification extends TestBase{
         app.getContactHelper().fillContactForm(contactData);
         app.getContactHelper().updateContact();
         app.getNavigationHelper().gotoHomePage();
+        app.getContactHelper().rebuildContactCache();
 
         //save new state
         List<ContactData> newList = app.getContactHelper().getContacts();

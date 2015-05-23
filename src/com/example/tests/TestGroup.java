@@ -1,7 +1,6 @@
 package com.example.tests;
 
 
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.util.*;
@@ -24,6 +23,7 @@ public class TestGroup extends TestBase {
         app.getGroupHelper().fillGroupForm(groupData);
         app.getGroupHelper().submitGroupCreation();
         app.getGroupHelper().returnToGroupPage();
+        app.getGroupHelper().rebuildGroupCache();
 
         //save new state
         List<GroupData> newList = app.getGroupHelper().getGroups();

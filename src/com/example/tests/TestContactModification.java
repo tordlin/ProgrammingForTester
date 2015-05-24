@@ -1,11 +1,11 @@
 package com.example.tests;
 
+import com.example.utils.SortedListOf;
 import org.testng.annotations.Test;
+import java.util.Random;
+import static org.hamcrest.Matchers.equalTo;
+import static org.junit.Assert.assertThat;
 
-import java.util.Collections;
-import java.util.List;
-
-import static org.testng.Assert.assertEquals;
 
 /**
  * Created by Tordlin on 01/05/2015.
@@ -14,30 +14,27 @@ public class TestContactModification extends TestBase{
 
     @Test
     public void modifySomeContact(){
-        app.getNavigationHelper().openMainPage();
+        app.navigateTo().mainPage();
 
         //save old state
-        List<ContactData> oldList = app.getContactHelper().getContacts();
+        SortedListOf<ContactData> oldList = app.getContactHelper().getContacts();
+
+        Random rnd = new Random();
+        int index = rnd.nextInt(oldList.size() - 1);
 
         //actions
-        app.getContactHelper().initModifySomeContact(0);
-        ContactData contactData = new ContactData();
-        contactData.name = "";
-        contactData.surname = "";
-        contactData.address = "new address";
-        app.getContactHelper().fillContactForm(contactData);
-        app.getContactHelper().updateContact();
-        app.getNavigationHelper().gotoHomePage();
-        app.getContactHelper().rebuildContactCache();
+        ContactData contactData = new ContactData()
+                .withName("")
+                .withSurname("")
+                .withAddress("new Address");
+
+        app.getContactHelper().modifyContact(index, contactData);
+
 
         //save new state
-        List<ContactData> newList = app.getContactHelper().getContacts();
+        SortedListOf<ContactData> newList = app.getContactHelper().getContacts();
 
         //compare states
-        oldList.remove(0);
-        oldList.add(contactData);
-        Collections.sort(oldList);
-        Collections.sort(newList);
-        assertEquals(newList, oldList);
+        assertThat(newList, equalTo(oldList.without(index).withAdded(contactData)));
     }
 }

@@ -34,34 +34,35 @@ public class TestBase {
     public Iterator<Object[]> randomGroupGeneration(){
         List<Object[]> list = new ArrayList<Object[]>();
         for(int i = 0; i < 5; i++){
-            GroupData groupData = new GroupData();
-            groupData.name = generateRandomString();
-            groupData.header = generateRandomString();
-            groupData.footer = generateRandomString();
+            GroupData groupData = new GroupData()
+                    .withName(generateRandomString())
+                    .withHeader(generateRandomString())
+                    .withFooter(generateRandomString());
             list.add(new Object[]{groupData});
         }
         return  list.iterator();
     }
 
+
     @DataProvider
     public Iterator<Object[]> randomContactGeneration(){
         List<Object[]> list = new ArrayList<Object[]>();
         for(int i = 0; i < 5; i++){
-            ContactData contactData = new ContactData();
-            contactData.name = generateRandomString();
-            contactData.surname = generateRandomString();
-            contactData.address = generateRandomString();
-            contactData.homeNumber = "00" + i;
-            contactData.mobileNumber = "00" + i;
-            contactData.workNumber = "00" + i;
-            contactData.email1 = "test" + i + "@mail.ru";
-            contactData.email2 = "test2" + i + "@mail.ru";
-            contactData.bday = "1";
-            contactData.bmonth = "January";
-            contactData.byear = "2000";
-            contactData.groupName = "GroupName1";
-            contactData.secondaryAddress = generateRandomString();
-            contactData.secondaryPhone = generateRandomString();
+            ContactData contactData = new ContactData()
+                    .withName(generateRandomString())
+                    .withSurname(generateRandomString())
+                    .withAddress(generateRandomString())
+                    .withHomeNumber("00" + i)
+                    .withMobileNumber("00" + i)
+                    .withWorkNumber("00" + i)
+                    .withEmail1("test" + i + "@mail.ru")
+                    .withEmail2("test2" + i + "@mail.ru")
+                    .withBDay("1")
+                    .withBMonth("January")
+                    .withBYear("2000")
+                    .withGroupName("GroupName1")
+                    .withSecondaryAddress(generateRandomString())
+                    .withSecondaryPhone(generateRandomString());
             list.add(new Object[]{contactData});
         }
         return  list.iterator();

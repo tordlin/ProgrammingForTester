@@ -1,9 +1,9 @@
 package com.example.tests;
 
 public class GroupData implements  Comparable<GroupData>{
-    public  String name;
-    public  String header;
-    public  String footer;
+    private String name;
+    private String header;
+    private String footer;
 
     public GroupData(String name, String header, String footer) {
         this.name = name;
@@ -52,5 +52,20 @@ public class GroupData implements  Comparable<GroupData>{
     @Override
     public int compareTo(GroupData other) {
         return this.name.toLowerCase().compareTo(other.name.toLowerCase());
+    }
+
+    public GroupData withName(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public GroupData withHeader(String header) {
+        this.header = header;
+        return this;
+    }
+
+    public GroupData withFooter(String footer) {
+        this.footer = footer;
+        return this;
     }
 }

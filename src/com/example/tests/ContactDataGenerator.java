@@ -1,8 +1,8 @@
 package com.example.tests;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import com.thoughtworks.xstream.XStream;
+
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -36,14 +36,19 @@ public class ContactDataGenerator {
 
     }
 
-    private static void saveContactsToXMLFile(List<ContactData> contacts, File file) {
-
+    private static void saveContactsToXMLFile(List<ContactData> contacts, File file) throws IOException {
+        XStream xStream = new XStream();
+        xStream.alias("contact",ContactData.class);
+        String xml = xStream.toXML(contacts);
+        FileWriter writer = new FileWriter(file);
+        writer.write(xml);
+        writer.close();
     }
 
     private static void saveContactsToCSVFile(List<ContactData> contacts, File file) throws IOException {
         FileWriter writer = new FileWriter(file);
         for(ContactData contactData : contacts)
-        writer.write(contactData.getName() + "," + contactData.getSurname() + "," + contactData.getGroupName() + "\n");
+        writer.write(contactData.getName() + "," + contactData.getSurname() + "," + contactData.getGroupName() + ",!" + "\n");
         writer.close();
     }
 
@@ -68,6 +73,30 @@ public class ContactDataGenerator {
             list.add(contactData);
         }
         return  list;
+    }
+
+    public static List<ContactData> loadContactsFromCSVFile(File file) throws IOException {
+        List<ContactData> list = new ArrayList<ContactData>();
+        FileReader reader = new FileReader(file);
+        BufferedReader bufferedReader = new BufferedReader(reader);
+        String line = bufferedReader.readLine();
+        while (line!=null){
+            String[] part = line.split(",");
+            ContactData contactData = new ContactData()
+                    .withName(part[0])
+                    .withSurname(part[1])
+                    .withGroupName(part[2]);
+            list.add(contactData);
+            line = bufferedReader.readLine();
+        }
+        reader.close();
+        return  list;
+    }
+
+    public static List<ContactData> loadContactsFromXMLFile(File file) throws IOException {
+        XStream xStream = new XStream();
+        xStream.alias("contact",GroupData.class);
+        return (List<ContactData>) xStream.fromXML(file);
     }
 
     public static String generateRandomString(){

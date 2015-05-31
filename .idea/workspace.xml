@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="74c0ffec-0e17-4265-944f-06aff49fe28e" name="Default" comment="HW12">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/example/utils/ListOf.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/example/utils/SortedListOf.java" />
+    <list default="true" id="74c0ffec-0e17-4265-944f-06aff49fe28e" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/contacts.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/contacts.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/groups.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/groups.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/tests/TestGroup.java" afterPath="$PROJECT_DIR$/src/com/example/tests/TestGroup.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="AddressBookSelenium.iws" />
@@ -44,7 +47,7 @@
         <entry file="file://$PROJECT_DIR$/src/com/example/tests/GroupDataGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="85" column="8" selection-start-line="85" selection-start-column="8" selection-end-line="87" selection-end-column="55" />
+              <caret line="19" column="37" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1855#1866#0" expanded="true" />
@@ -78,11 +81,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestGroup.java" pinned="true" current-in-tab="true">
+      <file leaf-file-name="TestGroup.java" pinned="true" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/tests/TestGroup.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.20253165">
-              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="73" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="groups.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/groups.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -251,8 +266,8 @@
         <option value="$PROJECT_DIR$/groups.txt" />
         <option value="$PROJECT_DIR$/src/com/example/tests/GroupDataGenerator.java" />
         <option value="$PROJECT_DIR$/src/com/example/tests/ContactDataGenerator.java" />
-        <option value="$PROJECT_DIR$/src/com/example/tests/TestGroup.java" />
         <option value="$PROJECT_DIR$/src/com/example/tests/TestContact.java" />
+        <option value="$PROJECT_DIR$/src/com/example/tests/TestGroup.java" />
       </list>
     </option>
   </component>
@@ -812,8 +827,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.ContactDataGenerator" />
-        <item index="1" class="java.lang.String" itemvalue="TestNG.TestContact" />
+        <item index="0" class="java.lang.String" itemvalue="TestNG.TestContact" />
+        <item index="1" class="java.lang.String" itemvalue="Application.ContactDataGenerator" />
         <item index="2" class="java.lang.String" itemvalue="TestNG.TestGroupModification" />
         <item index="3" class="java.lang.String" itemvalue="TestNG.TestContactRemoval" />
         <item index="4" class="java.lang.String" itemvalue="TestNG.TestGroupRemoval" />
@@ -855,7 +870,13 @@
       <option name="project" value="LOCAL" />
       <updated>1433016947930</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="HW12 ver.1.1">
+      <created>1433093689840</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1433093689840</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -928,7 +949,8 @@
     <MESSAGE value="HW9" />
     <MESSAGE value="HW11" />
     <MESSAGE value="HW12" />
-    <option name="LAST_COMMIT_MESSAGE" value="HW12" />
+    <MESSAGE value="HW12 ver.1.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="HW12 ver.1.1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -971,7 +993,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="23" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="23" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1015,7 +1039,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="23" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="23" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1287,50 +1313,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/contacts.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1721519">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/groups.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12911393">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/groups.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/contacts.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/tests/GroupDataGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="85" column="8" selection-start-line="85" selection-start-column="8" selection-end-line="87" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1855#1866#0" expanded="true" />
-            <element signature="e#2333#2344#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/tests/ContactDataGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1359,6 +1341,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/tests/GroupDataGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="37" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1855#1866#0" expanded="true" />
+            <element signature="e#2333#2344#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/tests/TestContact.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1371,8 +1365,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/tests/TestGroup.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20253165">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="73" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contacts.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1721519">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contacts.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47341773">
+          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/groups.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.12911393">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/groups.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>

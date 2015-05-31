@@ -18,7 +18,7 @@ public class TestGroup extends TestBase {
 
     @DataProvider
     public Iterator<Object[]> groupsFromFile() throws IOException {
-        return  wrapGroupsForDataProvider(loadGroupsFromCSVFile(new File("groups.txt"))).iterator();
+        return  wrapGroupsForDataProvider(loadGroupsFromXMLFile(new File("groups.txt"))).iterator();
     }
 
 

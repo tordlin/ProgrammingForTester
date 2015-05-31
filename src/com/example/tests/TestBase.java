@@ -3,9 +3,13 @@ package com.example.tests;
 import com.example.fw.ApplicationManager;
 import org.testng.annotations.*;
 
+import java.io.File;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Properties;
+
 import static com.example.tests.ContactDataGenerator.generateRandomContacts;
 import static com.example.tests.GroupDataGenerator.generateRandomGroups;
 
@@ -20,7 +24,10 @@ public class TestBase {
 
     @BeforeTest
     public void setUp() throws Exception {
-        app = new ApplicationManager();
+        String configFile = System.getProperty("configFile", "application.properties");
+        Properties properties = new Properties();
+        properties.load(new FileReader(new File("application.properties")));
+        app = new ApplicationManager(properties);
 
     }
 
